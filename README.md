@@ -1,39 +1,25 @@
-# Bitmex-referral-analyzer
+# Bitmex-status-cli
 
-###### Minimum Recommended Specifications
+###### Minimum Specifications
 
 - Go 1.10 or 1.11
 * Linux
 
-
-  Installation instructions can be found here: https://golang.org/doc/install.
-  It is recommended to add `$GOPATH/bin` to your `PATH` at this point.
+  Go can be installed here : https://golang.org/doc/install.
 
 ###### setup
 ``cd ~/go/src/github.com/``
 
-``git clone git@gitlab.com:romanornr/Bitmex-referral-analyzer``
+``git clone https://github.com/2lazy2debug/bitmex-status-cli``
 
-``cd Bitmex-referral-analyzer``
+``cd bitmex-status-cli``
 
-``dep ensure`` 
+###### API Key
+You should put your API key in the bitmex.apikey file. If you decide to fork the project, there's already a reference in .gitignore.
 
+Since it's kind of my first project in Golang, I'm not encrypting shit (api calls are in https of course) so... careful
 
-dep is a dependency management tool for Go. It requires Go 1.9 or newer to compile.
-https://github.com/golang/dep
-
-###### CSV file
-Your wallet history csv file should be saved in the same folder as the program.
-
-###### Screenshots
-![alt text](https://github.com/romanornr/Bitmex-referral-analyzer/blob/master/screenshots/save-as-csv.png?raw=true)
-<br><br>
-
-
-
-![alt text](https://github.com/romanornr/Bitmex-referral-analyzer/blob/master/screenshots/screenshot.png?raw=true)
-
-###### Ref shill
-Join to get that 10% Shitmex discount: https://www.bitmex.com/register/vhT2qm
+###### Referral 
+If you haven't joined BitMEX yet (why are you here then?) and you want 10% discount on fees : https://www.bitmex.com/register/1TTdTj
 
 

@@ -6,7 +6,6 @@ package main
 
 import (
 	"bitmex-status-cli/config"
-	"bitmex-status-cli/csv"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -70,10 +69,6 @@ func init() {
 }
 
 func main() {
-	files := csv.ScanFiles(".csv")
-	transactions, _ := csv.ReadCSVFiles(files)
-	calculateTotalReferral(transactions)
-	fmt.Printf("%s\n", BITMEXREFLINK)
 
-	csv.ReadCSVFiles(csv.ScanFiles("csv"))
+	fmt.Printf("%v", BITMEXREFLINK)
 }
