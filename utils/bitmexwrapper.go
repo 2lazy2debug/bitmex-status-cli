@@ -11,8 +11,9 @@ type Position struct {
 }
 
 func getPosition() {
-	call := getApiCall("position")
-	result := performApiCall(call)
+	endpoint := "position"
+
+	result := performApiCall(endpoint, APIURL)
 
 	fmt.Printf("%v", result)
 

@@ -8,17 +8,17 @@ import (
 	"time"
 )
 
-func getApiCall(endpoint string) (call string) {
+func getApiCall(endpoint string, url string) (call string) {
 	var sb strings.Builder
-	sb.WriteString(APIURL)
+	sb.WriteString(url)
 	sb.WriteString(endpoint)
 	call = sb.String()
 
 	return
 }
 
-func performApiCall(call string) (result string) {
-	req, err := http.NewRequest(http.MethodGet, call, nil)
+func performApiCall(endpoint string, url string) (result string) {
+	req, err := http.NewRequest(http.MethodGet, getApiCall(url, endpoint), nil)
 	if err != nil {
 		panic(err)
 	}
@@ -47,5 +47,5 @@ func performApiCall(call string) (result string) {
 }
 
 func generateSignature() {
-
+	//HEX(HMAC_SHA256(apiSecret, 'GET/api/v1/instrument1518064236'))
 }
