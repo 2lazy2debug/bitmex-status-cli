@@ -64,7 +64,7 @@ func bitcoinToDollar() {
 var bitcoinPrice float64
 
 func init() {
-	c.GetConf()
+	//c.GetConf()
 	bitcoinToDollar()
 }
 
