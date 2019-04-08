@@ -7,7 +7,7 @@
 
   Go can be installed here : https://golang.org/doc/install.
 
-###### setup
+###### Setup
 ``cd ~/go/src/github.com/``
 
 ``git clone https://github.com/2lazy2debug/bitmex-status-cli``

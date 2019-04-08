@@ -5,14 +5,14 @@
 package main
 
 import (
-	"bitmex-status-cli/utils"
+	"bitmex-status-cli/bitmex"
 	"fmt"
 )
 
 const BITMEXREFLINK = "https://www.bitmex.com/register/1TTdTj"
 
 func main() {
-	fmt.Println("Your actual BitMex position : \n", utils.GetPosition(), " \n")
+	fmt.Println("Your actual BitMex position : \n", bitmex.GetPosition(), " \n")
 
 	fmt.Println("Share this link with a friend if you want him to join BitMEX : \n", BITMEXREFLINK)
 }

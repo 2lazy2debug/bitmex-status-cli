@@ -1,6 +1,7 @@
-package utils
+package network
 
 import (
+	"bitmex-status-cli/io"
 	"io/ioutil"
 	"net/http"
 	"strconv"
@@ -8,16 +9,7 @@ import (
 	"time"
 )
 
-func getAPICall(endpoint string, url string) (call string) {
-	var sb strings.Builder
-	sb.WriteString(url)
-	sb.WriteString(endpoint)
-	call = sb.String()
-
-	return
-}
-
-func performAPICall(keys map[string]string, reqType string, endpoint string, url string) (result string) {
+func PerformAPICall(keys map[string]string, reqType string, endpoint string, url string) (result string) {
 	req, err := http.NewRequest(http.MethodGet, getAPICall(endpoint, url), nil)
 	if err != nil {
 		panic(err)
@@ -47,6 +39,15 @@ func performAPICall(keys map[string]string, reqType string, endpoint string, url
 	return
 }
 
+func getAPICall(endpoint string, url string) (call string) {
+	var sb strings.Builder
+	sb.WriteString(url)
+	sb.WriteString(endpoint)
+	call = sb.String()
+
+	return
+}
+
 func generateSignature(secret string, reqType string, endpoint string, expires string) (signature string) {
 
 	var sb strings.Builder
@@ -54,6 +55,6 @@ func generateSignature(secret string, reqType string, endpoint string, expires s
 	sb.WriteString(endpoint)
 	sb.WriteString(expires)
 
-	signature = generateHMAC(secret, sb.String())
+	signature = io.GenerateHMAC(secret, sb.String())
 	return
 }

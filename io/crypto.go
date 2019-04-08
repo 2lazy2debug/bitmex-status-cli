@@ -1,4 +1,4 @@
-package utils
+package io
 
 import (
 	"crypto/hmac"
@@ -7,7 +7,7 @@ import (
 	"fmt"
 )
 
-func generateHMAC(secret string, data string) (result string) {
+func GenerateHMAC(secret string, data string) (result string) {
 
 	hmacObj := hmac.New(sha256.New, []byte(secret))
 	fmt.Println("data : " + data)

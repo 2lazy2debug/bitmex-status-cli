@@ -1,4 +1,4 @@
-package utils
+package io
 
 import (
 	"bufio"
@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func readFileLines(filepath string) (keys map[string]string) {
+func ReadKeyFile(filepath string) (keys map[string]string) {
 	keys = make(map[string]string)
 
 	f, err := os.OpenFile(filepath, os.O_RDONLY, os.ModePerm)
