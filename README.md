@@ -2,6 +2,16 @@
 
 ##### Work in progress - more to come SoonTM
 
+Actual situation : You just execute go run main.go and get the raw position response for the server. 
+
+Next steps:
+
+- Formatting returned data nicely
+- Return stop and profit orders as well
+- Integration for Travis
+- Testing
+
+
 ##### Minimum Specifications
 
 - Go 1.10 : https://golang.org/doc/install.
