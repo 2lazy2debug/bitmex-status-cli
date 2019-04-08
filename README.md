@@ -29,11 +29,14 @@ Next steps:
 ##### API Key
 You should put your API key in a bitmex.apikey file on the same level as main.go. If you decide to fork the project, there's already a reference in .gitignore.
 
-Since it's kind of my first project in Golang, I'm not encrypting shit (api calls are in https of course) so... careful
+Since I'm doing this for personal purpose, I'm not encrypting shit (api calls are in https of course) so... careful
 
 Syntax : 
+
 ``id:myverypersonalbitmexid``
+
 ``secret:myveryveryverypersonalbitmexsecret``
+
 ``Add a line break``
 
 ##### Referral 
