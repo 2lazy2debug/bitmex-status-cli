@@ -4,16 +4,18 @@ import (
 	"fmt"
 )
 
-const APIURL = "https://www.bitmex.com/api/v1/"
+const APIURL = "https://www.bitmex.com"
 
 type Position struct {
 	//something
 }
 
 func getPosition() {
-	endpoint := "position"
+	endpoint := "/api/v1/position"
 
-	result := performApiCall(endpoint, APIURL)
+	keys := readFileLines("bitmex.apikey")
+
+	result := performAPICall(keys, "GET", endpoint, APIURL)
 
 	fmt.Printf("%v", result)
 

@@ -6,12 +6,9 @@ import (
 	"strconv"
 	"strings"
 	"time"
-	"crypto/hmac"
-	"crypto/sha256"
-	"encoding/hex"
 )
 
-func getApiCall(endpoint string, url string) (call string) {
+func getAPICall(endpoint string, url string) (call string) {
 	var sb strings.Builder
 	sb.WriteString(url)
 	sb.WriteString(endpoint)
@@ -20,18 +17,16 @@ func getApiCall(endpoint string, url string) (call string) {
 	return
 }
 
-func performApiCall(endpoint string, url string) (result string) {
-	req, err := http.NewRequest(http.MethodGet, getApiCall(url, endpoint), nil)
+func performAPICall(keys map[string]string, reqType string, endpoint string, url string) (result string) {
+	req, err := http.NewRequest(http.MethodGet, getAPICall(url, endpoint), nil)
 	if err != nil {
 		panic(err)
 	}
 
-	expires := int32(time.Now().Unix()) + 10000
-	keys := readFileLines("bitmex.apikey")
+	expires := strconv.FormatInt(int64(int32(time.Now().Unix()) + 10000), 10))
+	sig := generateSignature(keys["secret"], reqType, endpoint, expires)
 
-
-
-	req.Header.Add("api-expires", strconv.FormatInt(int64(expires), 10))
+	req.Header.Add("api-expires", expires)
 	req.Header.Add("api-key", keys["id"])
 
 	client := http.DefaultClient
@@ -51,12 +46,12 @@ func performApiCall(endpoint string, url string) (result string) {
 	return
 }
 
-func generateSignature(secret string, reqType string, endpoint string, expires string)(signature string) {
+func generateSignature(secret string, reqType string, endpoint string, expires string) (signature string) {
 
 	var sb strings.Builder
 	sb.WriteString(reqType)
-	sb.WriteString("/")
 	sb.WriteString(endpoint)
 	sb.WriteString(expires)
-	//HEX(HMAC_SHA256(apiSecret, 'GET/api/v1/instrument1518064236'))
+	signature = generateHMAC(secret, sb.String())
+	return
 }
