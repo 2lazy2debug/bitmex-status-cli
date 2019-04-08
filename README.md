@@ -14,6 +14,8 @@
 
 ``cd bitmex-status-cli``
 
+``go run main.go``
+
 ##### API Key
 You should put your API key in a bitmex.apikey file on the same level as main.go. If you decide to fork the project, there's already a reference in .gitignore.
 
