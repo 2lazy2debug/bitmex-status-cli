@@ -1,21 +1,21 @@
 # Bitmex-status-cli
 
-###### Minimum Specifications
+##### Work in progress - more to come SoonTM
 
-- Go 1.10
-* Linux
+##### Minimum Specifications
 
-  Go can be installed here : https://golang.org/doc/install.
+- Go 1.10 : https://golang.org/doc/install.
+- Tested on Windows 10, Linux 18.10
 
-###### Setup
+##### Setup
 ``cd ~/go/src/github.com/``
 
 ``git clone https://github.com/2lazy2debug/bitmex-status-cli``
 
 ``cd bitmex-status-cli``
 
-###### API Key
-You should put your API key in the bitmex.apikey file. If you decide to fork the project, there's already a reference in .gitignore.
+##### API Key
+You should put your API key in a bitmex.apikey file on the same level as main.go. If you decide to fork the project, there's already a reference in .gitignore.
 
 Since it's kind of my first project in Golang, I'm not encrypting shit (api calls are in https of course) so... careful
 
@@ -24,7 +24,7 @@ Syntax :
 ``secret:myveryveryverypersonalbitmexsecret``
 ``Add a line break``
 
-###### Referral 
+##### Referral 
 If you haven't joined BitMEX yet (why are you here then?) and you want 10% discount on fees : https://www.bitmex.com/register/1TTdTj
 
 
