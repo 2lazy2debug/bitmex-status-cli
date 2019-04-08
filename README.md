@@ -2,7 +2,7 @@
 
 ###### Minimum Specifications
 
-- Go 1.10 or 1.11
+- Go 1.10
 * Linux
 
   Go can be installed here : https://golang.org/doc/install.

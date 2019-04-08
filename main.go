@@ -12,7 +12,7 @@ import (
 const BITMEXREFLINK = "https://www.bitmex.com/register/1TTdTj"
 
 func main() {
-	fmt.Println("Your actual BitMex position : \n", utils.GetPosition())
+	fmt.Println("Your actual BitMex position : \n", utils.GetPosition(), " \n")
 
 	fmt.Println("Share this link with a friend if you want him to join BitMEX : \n", BITMEXREFLINK)
 }
