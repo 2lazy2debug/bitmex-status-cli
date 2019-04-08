@@ -18,17 +18,18 @@ func getAPICall(endpoint string, url string) (call string) {
 }
 
 func performAPICall(keys map[string]string, reqType string, endpoint string, url string) (result string) {
-	req, err := http.NewRequest(http.MethodGet, getAPICall(url, endpoint), nil)
+	req, err := http.NewRequest(http.MethodGet, getAPICall(endpoint, url), nil)
 	if err != nil {
 		panic(err)
 	}
 
-	expires := strconv.FormatInt(int64(int32(time.Now().Unix()) + 10000), 10))
+	expires := strconv.FormatInt(int64(int32(time.Now().Unix())+10000), 10)
+	//expires := strconv.FormatInt(int64(1518064236), 10)
 	sig := generateSignature(keys["secret"], reqType, endpoint, expires)
 
 	req.Header.Add("api-expires", expires)
 	req.Header.Add("api-key", keys["id"])
-
+	req.Header.Add("api-signature", sig)
 	client := http.DefaultClient
 
 	resp, err := client.Do(req)
@@ -52,6 +53,7 @@ func generateSignature(secret string, reqType string, endpoint string, expires s
 	sb.WriteString(reqType)
 	sb.WriteString(endpoint)
 	sb.WriteString(expires)
+
 	signature = generateHMAC(secret, sb.String())
 	return
 }

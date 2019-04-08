@@ -5,7 +5,7 @@
 package main
 
 import (
-	"bitmex-status-cli/config"
+	"bitmex-status-cli/utils"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -15,7 +15,7 @@ import (
 	"time"
 )
 
-var c config.Conf
+//var c config.Conf
 
 const BITMEXREFLINK = "https://www.bitmex.com/register/1TTdTj"
 
@@ -69,6 +69,7 @@ func init() {
 }
 
 func main() {
+	fmt.Println("%v", utils.GetPosition())
 
-	fmt.Printf("%v", BITMEXREFLINK)
+	fmt.Println("%v", BITMEXREFLINK)
 }

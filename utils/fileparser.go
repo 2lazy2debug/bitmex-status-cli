@@ -9,6 +9,8 @@ import (
 )
 
 func readFileLines(filepath string) (keys map[string]string) {
+	keys = make(map[string]string)
+
 	f, err := os.OpenFile(filepath, os.O_RDONLY, os.ModePerm)
 	if err != nil {
 		log.Fatalf("open file error: %v", err)
@@ -28,7 +30,7 @@ func readFileLines(filepath string) (keys map[string]string) {
 			return
 		}
 		parts := strings.Split(line, ":") // GET the line string
-		keys[parts[0]] = parts[1]
+		keys[parts[0]] = strings.TrimSuffix(parts[1], "\n")
 	}
 	return
 }

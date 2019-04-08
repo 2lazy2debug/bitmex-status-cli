@@ -19,6 +19,11 @@ You should put your API key in the bitmex.apikey file. If you decide to fork the
 
 Since it's kind of my first project in Golang, I'm not encrypting shit (api calls are in https of course) so... careful
 
+Syntax : 
+``id:myverypersonalbitmexid``
+``secret:myveryveryverypersonalbitmexsecret``
+``Add a line break``
+
 ###### Referral 
 If you haven't joined BitMEX yet (why are you here then?) and you want 10% discount on fees : https://www.bitmex.com/register/1TTdTj
 
