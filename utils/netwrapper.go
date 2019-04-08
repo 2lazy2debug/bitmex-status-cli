@@ -6,6 +6,9 @@ import (
 	"strconv"
 	"strings"
 	"time"
+	"crypto/hmac"
+	"crypto/sha256"
+	"encoding/hex"
 )
 
 func getApiCall(endpoint string, url string) (call string) {
@@ -25,6 +28,8 @@ func performApiCall(endpoint string, url string) (result string) {
 
 	expires := int32(time.Now().Unix()) + 10000
 	keys := readFileLines("bitmex.apikey")
+
+
 
 	req.Header.Add("api-expires", strconv.FormatInt(int64(expires), 10))
 	req.Header.Add("api-key", keys["id"])
@@ -46,6 +51,12 @@ func performApiCall(endpoint string, url string) (result string) {
 	return
 }
 
-func generateSignature() {
+func generateSignature(secret string, reqType string, endpoint string, expires string)(signature string) {
+
+	var sb strings.Builder
+	sb.WriteString(reqType)
+	sb.WriteString("/")
+	sb.WriteString(endpoint)
+	sb.WriteString(expires)
 	//HEX(HMAC_SHA256(apiSecret, 'GET/api/v1/instrument1518064236'))
 }
