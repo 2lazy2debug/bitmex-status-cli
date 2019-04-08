@@ -8,7 +8,7 @@
 - Tested on Windows 10, Linux 18.10
 
 ##### Setup
-``cd ~/go/src/github.com/``
+``cd ~/go/src/``
 
 ``git clone https://github.com/2lazy2debug/bitmex-status-cli``
 
