@@ -21,6 +21,18 @@ func GetPosition() (position Position) {
 
 }
 
+func GetOrder() (order Order) {
+
+	endpoint := "/api/v1/order"
+	keys := io.ReadKeyFile("bitmex.apikey")
+
+	result := network.PerformAPICall(keys, "GET", endpoint, APIURL)
+	bytevalue := []byte(result)
+	json.Unmarshal(bytevalue, &order)
+	return
+
+}
+
 type Position []struct {
 	Account              int         `json:"account"`
 	Symbol               string      `json:"symbol"`
@@ -113,4 +125,40 @@ type Position []struct {
 	Timestamp            time.Time   `json:"timestamp"`
 	LastPrice            float64     `json:"lastPrice"`
 	LastValue            int         `json:"lastValue"`
+}
+
+type Order []struct {
+	OrderID               string    `json:"orderID"`
+	ClOrdID               string    `json:"clOrdID"`
+	ClOrdLinkID           string    `json:"clOrdLinkID"`
+	Account               int       `json:"account"`
+	Symbol                string    `json:"symbol"`
+	Side                  string    `json:"side"`
+	SimpleOrderQty        int       `json:"simpleOrderQty"`
+	OrderQty              int       `json:"orderQty"`
+	Price                 int       `json:"price"`
+	DisplayQty            int       `json:"displayQty"`
+	StopPx                int       `json:"stopPx"`
+	PegOffsetValue        int       `json:"pegOffsetValue"`
+	PegPriceType          string    `json:"pegPriceType"`
+	Currency              string    `json:"currency"`
+	SettlCurrency         string    `json:"settlCurrency"`
+	OrdType               string    `json:"ordType"`
+	TimeInForce           string    `json:"timeInForce"`
+	ExecInst              string    `json:"execInst"`
+	ContingencyType       string    `json:"contingencyType"`
+	ExDestination         string    `json:"exDestination"`
+	OrdStatus             string    `json:"ordStatus"`
+	Triggered             string    `json:"triggered"`
+	WorkingIndicator      bool      `json:"workingIndicator"`
+	OrdRejReason          string    `json:"ordRejReason"`
+	SimpleLeavesQty       int       `json:"simpleLeavesQty"`
+	LeavesQty             int       `json:"leavesQty"`
+	SimpleCumQty          int       `json:"simpleCumQty"`
+	CumQty                int       `json:"cumQty"`
+	AvgPx                 int       `json:"avgPx"`
+	MultiLegReportingType string    `json:"multiLegReportingType"`
+	Text                  string    `json:"text"`
+	TransactTime          time.Time `json:"transactTime"`
+	Timestamp             time.Time `json:"timestamp"`
 }
