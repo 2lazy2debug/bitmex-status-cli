@@ -37,7 +37,7 @@ Syntax :
 ``go run main.go``
 
 #### Screenshot
-![Screen1]()
+![Screen1](https://github.com/2lazy2debug/bitmex-status-cli/master/bitmex-screenshot1.png)
 
 #### Referral 
 If you haven't joined BitMEX yet (why are you here then?) and you want 10% discount on fees : https://www.bitmex.com/register/1TTdTj
