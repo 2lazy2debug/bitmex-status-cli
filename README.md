@@ -1,30 +1,24 @@
 # Bitmex-status-cli
 
-##### Work in progress - more to come SoonTM
+![release 1.0](https://img.shields.io/badge/release-1.0-green.svg)
 
-Actual situation : You just execute go run main.go and get the raw position response for the server. 
-
-Next steps:
-
-- Formatting returned data nicely
-- Return stop and profit orders as well
-- Integration for Travis
-- Testing
+Get your positions and orders status with a simple command. 
 
 
-##### Minimum Specifications
+#### Minimum Specifications
 
 - Go 1.10 : https://golang.org/doc/install.
 - Tested on Windows 10, Linux 18.10
 
-##### Setup
+#### Setup
 ``cd ~/go/src/``
 
 ``git clone https://github.com/2lazy2debug/bitmex-status-cli``
 
 ``cd bitmex-status-cli``
 
-``go run main.go``
+##### Dependencies
+``go get github.com/fatih/color``
 
 ##### API Key
 You should put your API key in a bitmex.apikey file on the same level as main.go. If you decide to fork the project, there's already a reference in .gitignore.
@@ -39,7 +33,13 @@ Syntax :
 
 ``Add a line break``
 
-##### Referral 
+##### Run 
+``go run main.go``
+
+#### Screenshot
+![Screen1]()
+
+#### Referral 
 If you haven't joined BitMEX yet (why are you here then?) and you want 10% discount on fees : https://www.bitmex.com/register/1TTdTj
 
 
