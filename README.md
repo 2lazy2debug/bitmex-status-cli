@@ -10,6 +10,19 @@ Get your positions and orders status with a simple command.
 - Go 1.10 : https://golang.org/doc/install.
 - Tested on Windows 10, Linux 18.10
 
+
+#### API Key
+You should put your API key in a bitmex.apikey file on the same level as main.go or the executables provided. If you decide to fork the project, there's already a reference in .gitignore so don't worry about that. 
+
+
+Syntax : 
+
+``id:myverypersonalbitmexid``
+
+``secret:myveryveryverypersonalbitmexsecret``
+
+``Add a line break``
+
 #### Setup
 ``cd ~/go/src/``
 
@@ -20,21 +33,13 @@ Get your positions and orders status with a simple command.
 ##### Dependencies
 ``go get github.com/fatih/color``
 
-##### API Key
-You should put your API key in a bitmex.apikey file on the same level as main.go. If you decide to fork the project, there's already a reference in .gitignore.
-
-Since I'm doing this for personal purpose, I'm not encrypting shit (api calls are in https of course) so... careful
-
-Syntax : 
-
-``id:myverypersonalbitmexid``
-
-``secret:myveryveryverypersonalbitmexsecret``
-
-``Add a line break``
 
 ##### Run 
 ``go run main.go``
+
+#### Release
+
+You can get a built package on the releases tab. Just download it, and execute it after creating a bitmex.apikey file.
 
 #### Screenshot
 ![Screen1](https://github.com/2lazy2debug/bitmex-status-cli/blob/master/bitmex-screenshot1.png?raw=true)
