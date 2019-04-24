@@ -9,31 +9,31 @@ import (
 
 const APIURL = "https://www.bitmex.com"
 
-func GetPosition() (position Position) {
+func GetPositions() (positions Positions) {
 
 	endpoint := "/api/v1/position"
 	keys := io.ReadKeyFile("bitmex.apikey")
 
 	result := network.PerformAPICall(keys, "GET", endpoint, APIURL)
 	bytevalue := []byte(result)
-	json.Unmarshal(bytevalue, &position)
+	json.Unmarshal(bytevalue, &positions)
 	return
 
 }
 
-func GetOrder() (order Order) {
+func GetOrders() (orders Orders) {
 
-	endpoint := "/api/v1/order"
+	endpoint := "/api/v1/order?filter=%7B%22open%22%3A%20true%7D"
 	keys := io.ReadKeyFile("bitmex.apikey")
 
 	result := network.PerformAPICall(keys, "GET", endpoint, APIURL)
 	bytevalue := []byte(result)
-	json.Unmarshal(bytevalue, &order)
+	json.Unmarshal(bytevalue, &orders)
 	return
 
 }
 
-type Position []struct {
+type Positions []struct {
 	Account              int         `json:"account"`
 	Symbol               string      `json:"symbol"`
 	Currency             string      `json:"currency"`
@@ -127,7 +127,7 @@ type Position []struct {
 	LastValue            int         `json:"lastValue"`
 }
 
-type Order []struct {
+type Orders []struct {
 	OrderID               string    `json:"orderID"`
 	ClOrdID               string    `json:"clOrdID"`
 	ClOrdLinkID           string    `json:"clOrdLinkID"`
@@ -136,7 +136,7 @@ type Order []struct {
 	Side                  string    `json:"side"`
 	SimpleOrderQty        int       `json:"simpleOrderQty"`
 	OrderQty              int       `json:"orderQty"`
-	Price                 int       `json:"price"`
+	Price                 float64   `json:"price"`
 	DisplayQty            int       `json:"displayQty"`
 	StopPx                int       `json:"stopPx"`
 	PegOffsetValue        int       `json:"pegOffsetValue"`
